@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.22621.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-ReactorTrayWorker-194a8710-640d-4a08-91f5-81882e81d15e</UserSecretsId>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
+    <Platforms>ARM64;X64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="trayicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Static="true" Include="Microsoft.UI.Reactor.Factories" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.9" />
+    <PackageReference Include="Microsoft.UI.Reactor" Version="0.1.0-preview.11" />
+    <PackageReference Include="WinUIEx" Version="2.9.1" />
+  </ItemGroup>
+
+  <Target BeforeTargets="Build" Condition="'$(Platform)'=='AnyCPU'" Name="CheckPlatform">
+    <Error Text="Can't build for Any CPU" />
+  </Target>
+</Project>

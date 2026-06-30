@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="X64" />
+  </Configurations>
+  <Project Path="ReactorTrayWorker.csproj">
+    <Platform Solution="*|X64" Project="X64" />
+    <Platform Solution="*|ARM64" Project="ARM64" />
+  </Project>
+</Solution>
